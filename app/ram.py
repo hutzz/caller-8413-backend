@@ -4,7 +4,10 @@ import dataframe_image as dfi
 
 def megatransfers(initial_ls: int=2133, max_ls: int=6000):
     ls = []
-    count = 0 if initial_ls % 100 == 0 else 1
+    count = 0
+    if initial_ls % 100 == 0: count = 0
+    elif initial_ls % 100 == 33: count = 1
+    else: count = 2
     ls.append(initial_ls)
     while initial_ls < max_ls:
         count += 1
