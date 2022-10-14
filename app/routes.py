@@ -2,7 +2,7 @@ from index import app
 from flask import request, jsonify
 from errno import errorcode
 from flask_mysqldb import MySQL
-from app import media, abbie
+from app import media, abbie, ram
 
 mysql = MySQL(app)
 
@@ -30,6 +30,12 @@ try:
         dl = media.mp3(url)
         if not dl: return jsonify('h')
         return jsonify(dl)
+    @app.route('/rammap', methods =['POST'])
+    def rammap():
+        data = request.get_json()
+        mt1,mt2,cas1,cas2 = data 
+        mt1,mt2,cas1,cas2 = int(mt1),int(mt2),int(cas1),int(cas2)
+        return jsonify(ram.rammap(ram.megatransfers(mt1,mt2),ram.cas_latency(cas1,cas2)))
 
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_BAD_DB_ERROR:
