@@ -35,4 +35,4 @@ def rammap(mt_array, cas_array):
     df = pd.DataFrame(body, columns=mt_array, index=cas_array)
     df_styled = df.style.background_gradient(axis=None)
     dfi.export(df_styled, 'ram.png')
-    return '../caller-8413-data-server/ram.png'
+    return '../caller-8413-backend/ram.png'
