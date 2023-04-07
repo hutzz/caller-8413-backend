@@ -2,7 +2,7 @@ from index import app
 from flask import request, jsonify
 from errno import errorcode
 from flask_mysqldb import MySQL
-from app import media, abbie, ram, xi
+from app import media, abbie, ram #, xi
 
 mysql = MySQL(app)
 
